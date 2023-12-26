@@ -16,9 +16,9 @@ c.execute('''CREATE TABLE IF NOT EXISTS users (
 c.execute('''create table if not exists sklad_of_items (
                 id integer primary key autoincrement,
                 name text not null,
-                data text not null
+                data text not null,
+                price REAL
               )''')
-# c.execute('''ALTER TABLE sklad_of_items ADD COLUMN price REAL''')
 c.execute("INSERT INTO sklad_of_items (name, data, price) VALUES ('Товар1', '2022-09-01', 10.99)")
 c.execute("INSERT INTO sklad_of_items (name, data, price) VALUES ('Товар2', '2022-09-02', 19.99)")
 
