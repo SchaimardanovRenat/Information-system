@@ -42,13 +42,11 @@ c.execute('''create table if not exists sotrudniki (
                 age text not null,
                 foreign key (user_id) references users (user_id)
               )''')
-# c.execute('''ALTER TABLE sotrudniki ADD COLUMN age text not null''')
 c.execute('''INSERT INTO sotrudniki (name, data, user_id, age) 
-              VALUES (?, ?, ?, ?)''', ("Имя сотрудника", "Дата сотрудника", 1, "Возраст сотрудника"))
+              VALUES (?, ?, ?, ?)''', ("Имя сотрудника", "Дата сотрудника", 1, "10"))
 
 c.execute('''create table if not exists admin (
                 id integer primary key autoincrement,
-                
                 foreign key (user_id) references users (user_id)
               )''')
 def filter_items_by_price(min_price, max_price):
@@ -98,9 +96,7 @@ def login(username, password, role):
     else:
         print("Неверные данные для авторизации.")
         return None
-# на пустые значения выдает ошибку
-# авторизация проверка на ввод пустых и не своих значений и менб пользователя
-# функция для просмотра и удаления данных из таблицы sklad
+
 def create_user(username):
     c.execute("INSERT INTO sklad_of_items (name) VALUES (?)", (username,))
     conn.commit()
